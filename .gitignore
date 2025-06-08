@@ -1,0 +1,138 @@
+# CMake build directories
+cmake-build-*/
+build/
+out/
+
+# CMake cache and files
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+*.cmake
+!CMakeLists.txt
+
+# Generated files
+*.vcxproj*
+*.sln
+*.suo
+*.user
+*.ncb
+*.aps
+*.plg
+*.opt
+*.clw
+*.pdb
+*.ilk
+
+# Compiled Object files
+*.o
+*.obj
+*.lo
+*.slo
+*.ko
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+Timber
+Timber.exe
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# CLion specific
+.idea/
+cmake-build-*/
+
+# Visual Studio Code
+.vscode/
+
+# Visual Studio
+.vs/
+*.vcxproj
+*.vcxproj.filters
+*.vcxproj.user
+*.sln
+Debug/
+Release/
+x64/
+x86/
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+*.swp
+*.swo
+*~
+
+# OS specific
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Linux
+*~
+
+# FetchContent downloads (SFML and other dependencies)
+_deps/
+
+# Conan (if used)
+conandata.txt
+conaninfo.txt
+conanbuild.txt
+conanenv.txt
+
+# vcpkg (if used)
+vcpkg_installed/
+
+# Package managers
+packages/
+.packages/
+
+# Test results
+Testing/
+CTestTestfile.cmake
+
+# Coverage reports
+*.gcno
+*.gcda
+*.gcov
+coverage/
+
+# Documentation
+docs/build/
+doxygen_warnings.txt
+
+# Backup files
+*.bak
+*.backup
