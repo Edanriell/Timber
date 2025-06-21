@@ -1,16 +1,16 @@
-#include <iostream>
+// Include important libraries here
+#include <SFML/Graphics.hpp>
 
-// TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+// Make code easier to type with "using namespace"
+using namespace sf;
+
+// This is where our game starts from
 int main() {
-    // TIP Press <shortcut actionId="RenameElement"/> when your caret is at the <b>lang</b> variable name to see how CLion can help you rename it.
-    auto lang = "C++";
-    std::cout << "Hello and welcome to " << lang << "!\n";
+    // Create a video mode object
+    VideoMode vm(Vector2u(1920, 1080));
 
-    for (int i = 1; i <= 5; i++) {
-        // TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-        std::cout << "i = " << i << std::endl;
-    }
+    // Create and open a window for the game
+    RenderWindow window(vm, "Timber!!!", State::Windowed);
 
     return 0;
-    // TIP See CLion help at <a href="https://www.jetbrains.com/help/clion/">jetbrains.com/help/clion/</a>. Also, you can try interactive lessons for CLion by selecting 'Help | Learn IDE Features' from the main menu.
 }
