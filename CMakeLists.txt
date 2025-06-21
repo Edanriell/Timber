@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.31)
 project(Timber)
 
-set(CMAKE_CXX_STANDARD 26)
+set(CMAKE_CXX_STANDARD 23)
 
 # Include FetchContent module
 include(FetchContent)
@@ -26,10 +26,12 @@ target_link_libraries(Timber
 )
 
 # Copy SFML DLLs to output directory on Windows
-if (WIN32)
-    add_custom_command(
-            TARGET Timber
-            COMMENT "Copy OpenAL DLL"
-            PRE_BUILD COMMAND ${CMAKE_COMMAND} -E copy ${SFML_SOURCE_DIR}/extlibs/bin/$<IF:$<EQUAL:${CMAKE_SIZEOF_VOID_P},8>,x64,x86>/openal32.dll $<TARGET_FILE_DIR:Timber>
-            VERBATIM)
+# On Windows, copy SFML DLLs after build (if they exist)
+if (WIN32 AND BUILD_SHARED_LIBS)
+    add_custom_command(TARGET Timber POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_if_different
+            $<TARGET_FILE:sfml-graphics>
+            $<TARGET_FILE:sfml-window>
+            $<TARGET_FILE:sfml-system>
+            $<TARGET_FILE_DIR:Timber>)
 endif ()
