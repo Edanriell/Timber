@@ -100,6 +100,10 @@ int main() {
         ****************************************
         */
 
+        // Measure time
+        // delta time, is time between two updates
+        Time dt = clock.restart();
+
         /*
         **************************************** Draw the scene
         ****************************************
