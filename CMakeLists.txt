@@ -10,13 +10,14 @@ include(FetchContent)
 FetchContent_Declare(
         SFML
         GIT_REPOSITORY https://github.com/SFML/SFML.git
-        GIT_TAG 3.0.1  # Use the latest stable version
+        GIT_TAG 3.1.0  # Use the latest stable version
 )
 
 # Make SFML available
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Timber main.cpp)
+add_executable(Timber main.cpp
+        main.cpp)
 
 # Link SFML libraries
 target_link_libraries(Timber
