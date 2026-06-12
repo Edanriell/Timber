@@ -104,6 +104,28 @@ int main() {
         // delta time, is time between two updates
         Time dt = clock.restart();
 
+        // Setup the bee
+        if (!beeActive) {
+            // How fast is the bee
+            srand((int) time(0));
+            beeSpeed = (rand() % 200) + 200;
+
+            // How high is the bee
+            srand((int) time(0) * 10);
+            float height = (rand() % 1350) + 500;
+            spriteBee.setPosition(Vector2f(2000.0f, height));
+            beeActive = true;
+        } else {
+            // Move the bee
+            spriteBee.setPosition(Vector2f(spriteBee.getPosition().x - (beeSpeed * dt.asSeconds()),
+                                           spriteBee.getPosition().y));
+            // Has the bee reached the left-hand edge of the screen ?
+            if (spriteBee.getPosition().x < -100) {
+                // Set it up ready to be a whole new bee next frame
+                beeActive = false;
+            }
+        }
+
         /*
         **************************************** Draw the scene
         ****************************************
