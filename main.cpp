@@ -226,12 +226,17 @@ int main() {
                 spriteCloud3.setPosition(Vector2f(spriteCloud3.getPosition().x + (cloud3Speed * dt.asSeconds()),
                                                   spriteCloud3.getPosition().y));
 
-                // Has the cloud reached the right hand ednge of the screen ?
+                // Has the cloud reached the right hand edge of the screen?
                 if (spriteCloud3.getPosition().x > 1920) {
-                    // Set it cloud to be a whole new cloud next frame
+                    // Set it up ready to be a whole new cloud next frame
                     cloud3Active = false;
                 }
             }
+
+            // Update the score text
+            std::stringstream ss;
+            ss << "Score = " << score;
+            scoreText.setString(ss.str());
         }
 
         /*
@@ -253,18 +258,20 @@ int main() {
         // Draw the tree
         window.draw(spriteTree);
 
-        // Draw the insect
+        // Now draw the insect
         window.draw(spriteBee);
 
-        if (paused) {
-            window.draw(messageText);
-        }
+        // Draw the score
         window.draw(scoreText);
 
+        if (paused) {
+            // Draw our message
+            window.draw(messageText);
+        }
+ 
         // Show everything we just drew
         window.display();
     }
 
     return 0;
 }
-
