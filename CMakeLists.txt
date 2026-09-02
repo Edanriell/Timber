@@ -2,37 +2,22 @@ cmake_minimum_required(VERSION 3.31)
 project(Timber)
 
 set(CMAKE_CXX_STANDARD 23)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-# Include FetchContent module
 include(FetchContent)
 
-# Fetch SFML
 FetchContent_Declare(
         SFML
         GIT_REPOSITORY https://github.com/SFML/SFML.git
-        GIT_TAG 3.1.0  # Use the latest stable version
+        GIT_TAG 3.1.0
 )
 
-# Make SFML available
 FetchContent_MakeAvailable(SFML)
 
-add_executable(Timber main.cpp
-        main.cpp)
+add_executable(Timber main.cpp)
 
-# Link SFML libraries
-target_link_libraries(Timber
-        sfml-graphics
-        sfml-window
-        sfml-system
+target_link_libraries(Timber PRIVATE
+        SFML::Graphics
+        SFML::Window
+        SFML::System
 )
-
-# Copy SFML DLLs to output directory on Windows
-# On Windows, copy SFML DLLs after build (if they exist)
-if (WIN32 AND BUILD_SHARED_LIBS)
-    add_custom_command(TARGET Timber POST_BUILD
-            COMMAND ${CMAKE_COMMAND} -E copy_if_different
-            $<TARGET_FILE:sfml-graphics>
-            $<TARGET_FILE:sfml-window>
-            $<TARGET_FILE:sfml-system>
-            $<TARGET_FILE_DIR:Timber>)
-endif ()
